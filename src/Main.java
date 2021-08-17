@@ -1,11 +1,15 @@
 import task1.BerylliumSphere;
 import task1.Methods;
+import task12.Ex12;
+import task13.Ex13;
 import task2.ReturnArrayOfBS;
 import task3.TwoDimensionalArray;
 import task4.ThreeDimensionalArray;
 import task5.NonPrimitiveArray;
 import task6.TwoDimensionalArrayBS;
 import task7.ThreeDimensionalArrayBS;
+import task8.Assertions;
+import task9.PeelBanana;
 
 import java.util.Arrays;
 
@@ -22,7 +26,7 @@ public class Main {
          */
 
         Methods.method1(new BerylliumSphere[3]);
-        Methods.method1(new BerylliumSphere[] {new BerylliumSphere(), new BerylliumSphere(), new BerylliumSphere()});
+        Methods.method1(new BerylliumSphere[]{new BerylliumSphere(), new BerylliumSphere(), new BerylliumSphere()});
 
         System.out.println();
 
@@ -46,7 +50,7 @@ public class Main {
         arrays.
          */
 
-        TwoDimensionalArray.printTwoDimensionalArray(TwoDimensionalArray.getDoubleTwoDimensionalArray(3,3,1,5));
+        TwoDimensionalArray.printTwoDimensionalArray(TwoDimensionalArray.getDoubleTwoDimensionalArray(3, 3, 1, 5));
 
         System.out.println();
 
@@ -55,7 +59,7 @@ public class Main {
          */
 
 
-        ThreeDimensionalArray.printThreeDimensionalArray(ThreeDimensionalArray.getDoubleTwoDimensionalArray(3,3,3,1,5));
+        ThreeDimensionalArray.printThreeDimensionalArray(ThreeDimensionalArray.getDoubleTwoDimensionalArray(3, 3, 3, 1, 5));
 
         System.out.println();
 
@@ -76,7 +80,7 @@ public class Main {
         to the size arguments.
          */
 
-        TwoDimensionalArray.printTwoDimensionalArray(TwoDimensionalArrayBS.getTwoDimensionalArrayBS(3,3));
+        TwoDimensionalArray.printTwoDimensionalArray(TwoDimensionalArrayBS.getTwoDimensionalArrayBS(3, 3));
 
         System.out.println();
 
@@ -84,15 +88,64 @@ public class Main {
         Exercise 7: (1) Repeat the previous exercise for a 3-D array.
          */
 
-        ThreeDimensionalArray.printThreeDimensionalArray(ThreeDimensionalArrayBS.getDoubleTwoDimensionalArray(3,3,3));
+        ThreeDimensionalArray.printThreeDimensionalArray(ThreeDimensionalArrayBS.getDoubleTwoDimensionalArray(3, 3, 3));
+
+        System.out.println();
+
+        /*
+        Exercise 8: (1) Demonstrate the assertions in the previous paragraph.
+         */
+
+        Assertions.test();
+
+        /*
+        Exercise 9: (3) Create the classes necessary for the Peel<Banana> example and show
+        that the compiler doesn’t accept it. Fix the problem using an ArrayList.
+         */
+
+        PeelBanana peelBanana = new PeelBanana();
+        System.out.println(peelBanana.getBananas());
+
+        System.out.println();
+
+
+        /*
+        Exercise 10: (2) Modify ArrayOfGenerics .Java to use containers instead of arrays.
+        Show that you can eliminate the compile-time warnings.
+
+
+        ************************************IN PACK****************************************
+         */
+
+
+        /*
+        Exercise 11: (2) Show that autoboxing doesn’t work with arrays.
+
+
+        **************************IN PACK*****************************
+         */
+
+
+        /*
+        Exercise 12: (1) Create an initialized array of double using CountingGenerator. Print
+        the results.
+         */
+
+        Ex12.start();
+
+        System.out.println();
+
+        /*
+        Exercise 13: (2) Fill a String using CountingGenerator.Character.
+         */
+
+        Ex13.start();
 
         System.out.println();
 
         /*
 
          */
-
-
 
 
 
