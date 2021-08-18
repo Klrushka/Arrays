@@ -1,8 +1,16 @@
+import generators.Generated;
 import task1.BerylliumSphere;
 import task1.Methods;
 import task12.Ex12;
 import task13.Ex13;
+import task14.ArraysOfPrimitives;
+import task15.ContainerComparison;
+import task16.TestArrayGeneration;
+import task17.Test;
+import task18.CopiedArray;
+import task19.EqualsArrays;
 import task2.ReturnArrayOfBS;
+import task20.DeepEquals;
 import task3.TwoDimensionalArray;
 import task4.ThreeDimensionalArray;
 import task5.NonPrimitiveArray;
@@ -144,8 +152,95 @@ public class Main {
         System.out.println();
 
         /*
+        Exercise 14: (6) Create an array of each primitive type, then fill each array by using
+        CountingGenerator. Print each array.
+         */
+
+        ArraysOfPrimitives.printArrays();
+
+        System.out.println();
+
+        /*
+        Exercise 15: (2) Modify ContainerComparison.java by creating a Generator for
+        BerylliumSphere, and change main( ) to use that Generator with Generated.array().
+         */
+
+        ContainerComparison.start();
+
+        System.out.println();
+
+        /*
+        Exercise 16: (3) Starting with CountingGenerator.java, create a SkipGenerator
+        class that produces new values by incrementing according to a constructor argument. Modify
+        TestArrayGeneration.java to show that your new class works correctly.
+         */
+
+        TestArrayGeneration.start();
+
+        System.out.println();
+
+
+        /*
+        Exercise 17: (5) Create and test a Generator for BigDecimal, and ensure that it works
+        with the Generated methods.
+         */
+
+        Test.test();
+
+        System.out.println();
+
+
+        /*
+        Exercise 18: (3) Create and fill an array of BerylliumSphere. Copy this array to a new
+        array and show that it’s a shallow copy.
+         */
+
+
+        CopiedArray.test();
+
+        System.out.println();
+
+
+        /*
+        Exercise 19: (2) Create a class with an int field that’s initialized from a constructor
+        argument. Create two arrays of these objects, using identical initialization values for each
+        array, and show that Arrays.equals( ) says that they are unequal. Add an equals( )
+        method to your class to fix the problem.
+         */
+
+        EqualsArrays[] equalsArrays1 = new EqualsArrays[]{new EqualsArrays(1),
+                new EqualsArrays(2), new EqualsArrays(3)};
+
+        EqualsArrays[] equalsArrays2 = new EqualsArrays[]{new EqualsArrays(1),
+                new EqualsArrays(2), new EqualsArrays(3)};
+
+        EqualsArrays.test(equalsArrays1,equalsArrays2);
+
+        System.out.println();
+
+        /*
+        Exercise 20: (4) Demonstrate deepEquals( ) for multidimensional arrays.
+         */
+
+        DeepEquals.start();
+
+        System.out.println();
+
+        /*
 
          */
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
