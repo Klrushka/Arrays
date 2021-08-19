@@ -11,6 +11,10 @@ import task18.CopiedArray;
 import task19.EqualsArrays;
 import task2.ReturnArrayOfBS;
 import task20.DeepEquals;
+import task21.CBerylliumSphere;
+import task21.CBerylliumSphereComparator;
+import task22.BSearchArray;
+import task23.ReversedIntegers;
 import task3.TwoDimensionalArray;
 import task4.ThreeDimensionalArray;
 import task5.NonPrimitiveArray;
@@ -19,6 +23,7 @@ import task7.ThreeDimensionalArrayBS;
 import task8.Assertions;
 import task9.PeelBanana;
 
+import java.awt.image.AreaAveragingScaleFilter;
 import java.util.Arrays;
 
 public class Main {
@@ -214,7 +219,7 @@ public class Main {
         EqualsArrays[] equalsArrays2 = new EqualsArrays[]{new EqualsArrays(1),
                 new EqualsArrays(2), new EqualsArrays(3)};
 
-        EqualsArrays.test(equalsArrays1,equalsArrays2);
+        EqualsArrays.test(equalsArrays1, equalsArrays2);
 
         System.out.println();
 
@@ -227,21 +232,72 @@ public class Main {
         System.out.println();
 
         /*
+        Exercise 21: (3) Try to sort an array of the objects in Exercise 18. Implement
+        Comparable to fix the problem. Now create a Comparator to sort the objects into reverse
+        order.
+         */
 
+        BerylliumSphere[] spheres = new BerylliumSphere[5];
+        for (int i = 0; i < spheres.length; i++) {
+            spheres[i] = new BerylliumSphere();
+        }
+
+
+        CBerylliumSphere[] cBerylliumSpheres = new CBerylliumSphere[5];
+
+        for (int i = 0; i < cBerylliumSpheres.length; i++) {
+            cBerylliumSpheres[i] = new CBerylliumSphere();
+        }
+
+
+        System.out.println("Original: ");
+        System.out.println(Arrays.toString(cBerylliumSpheres));
+
+        Arrays.sort(cBerylliumSpheres);
+
+        System.out.println("Sorted: ");
+        System.out.println(Arrays.toString(cBerylliumSpheres));
+
+        Arrays.sort(cBerylliumSpheres, new CBerylliumSphereComparator());
+        System.out.println("Reverse: ");
+
+        System.out.println(Arrays.toString(cBerylliumSpheres));
+
+
+        System.out.println();
+
+        /*
+        Exercise 22: (2) Show that the results of performing a binarySearch( ) on an unsorted
+        array are unpredictable.
          */
 
 
+        BSearchArray.start();
+
+        System.out.println();
 
 
+        /*
+        Exercise 23: (2) Create an array of Integer, fill it with random int values (using
+        autoboxing), and sort it into reverse order using a Comparator.
+         */
+
+        ReversedIntegers.start(10);
+
+        System.out.println();
+
+        /*
+        Exercise 24: (3) Show that the class from Exercise 19 can be searched.
+         */
 
 
+        EqualsArrays[] equalsArrays = new EqualsArrays[]{new EqualsArrays(1),
+                new EqualsArrays(2), new EqualsArrays(3)};
 
+        Arrays.sort(equalsArrays);
 
-
-
-
-
-
+        System.out.println(Arrays.toString(equalsArrays));
+        System.out.println(Arrays.binarySearch(equalsArrays,equalsArrays[1]));
 
 
     }

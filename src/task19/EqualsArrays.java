@@ -2,7 +2,7 @@ package task19;
 
 import java.util.Arrays;
 
-public class EqualsArrays {
+public class EqualsArrays implements Comparable<EqualsArrays> {
     private int anInt;
 
     public EqualsArrays(int i) {
@@ -20,4 +20,13 @@ public class EqualsArrays {
     }
 
 
+    @Override
+    public String toString() {
+        return Integer.toString(anInt);
+    }
+
+    @Override
+    public int compareTo(EqualsArrays o) {
+        return Integer.compare(anInt,o.anInt);
+    }
 }
