@@ -1,5 +1,5 @@
 /*
-TODO 16 17 20 21 22 23
+TODO 16 17 21 22 23
  */
 import task1.BerylliumSphere;
 import task1.Methods;
