@@ -1,5 +1,5 @@
 /*
-TODO 16 17 19 20 21 22 23
+TODO 16 17 20 21 22 23
  */
 import task1.BerylliumSphere;
 import task1.Methods;
@@ -215,11 +215,15 @@ public class Main {
         method to your class to fix the problem.
          */
 
-        EqualsArrays[] equalsArrays1 = new EqualsArrays[]{new EqualsArrays(1),
-                new EqualsArrays(2), new EqualsArrays(3)};
+        int size = 5;
 
-        EqualsArrays[] equalsArrays2 = new EqualsArrays[]{new EqualsArrays(1),
-                new EqualsArrays(2), new EqualsArrays(3)};
+        EqualsArrays[] equalsArrays1 = new EqualsArrays[size];
+        EqualsArrays[] equalsArrays2 = new EqualsArrays[size];
+
+        for (int i = 0; i < size; i++){
+            equalsArrays1[i] = new EqualsArrays(1);
+            equalsArrays2[i] = new EqualsArrays(1);
+        }
 
         EqualsArrays.test(equalsArrays1, equalsArrays2);
 
