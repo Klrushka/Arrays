@@ -1,4 +1,6 @@
-import generators.Generated;
+/*
+TODO 16 17 19 20 21 22 23
+ */
 import task1.BerylliumSphere;
 import task1.Methods;
 import task12.Ex12;
@@ -298,6 +300,8 @@ public class Main {
 
         System.out.println(Arrays.toString(equalsArrays));
         System.out.println(Arrays.binarySearch(equalsArrays,equalsArrays[1]));
+
+
 
 
     }
