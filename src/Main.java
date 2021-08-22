@@ -83,7 +83,7 @@ public class Main {
         automatically initialized to null.
          */
 
-        System.out.println(Arrays.toString(new NonPrimitiveArray().getArray()));
+        System.out.println(Arrays.toString(NonPrimitiveArray.array));
 
         System.out.println();
 
