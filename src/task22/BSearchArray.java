@@ -1,15 +1,24 @@
 package task22;
 
 import java.util.Arrays;
+import java.util.Random;
 
 public class BSearchArray {
-    public static void start(){
-        int[] ints = new int[]{135, 5, 965, 25, 10, -45, 75, 15};
+    public static void start() {
+        int[] ints = new int[10];
+
+        for (int i = 0; i < ints.length; i++) {
+            ints[i] = new Random().nextInt(10);
+        }
 
         System.out.println(Arrays.toString(ints));
 
-        System.out.println("75 position: " + Arrays.binarySearch(ints,75));
-        System.out.println("-45 position: " + Arrays.binarySearch(ints,-45));
-        System.out.println("5 position: " + Arrays.binarySearch(ints,5));
+        for (int i = 0; i < 10; i++) {
+            System.out.println(ints[i] + " searching... " +
+                    "result: " + Arrays.binarySearch(ints,ints[i]));
+        }
+
+
+
     }
 }

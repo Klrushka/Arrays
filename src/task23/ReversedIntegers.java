@@ -1,7 +1,7 @@
 package task23;
 
 import java.util.Arrays;
-import java.util.Collections;
+import java.util.Comparator;
 import java.util.Random;
 
 public class ReversedIntegers {
@@ -17,7 +17,7 @@ public class ReversedIntegers {
 
         System.out.println(Arrays.toString(integer));
 
-        Arrays.sort(integer, Collections.reverseOrder());
+        Arrays.sort(integer, Comparator.reverseOrder());
 
         System.out.println(Arrays.toString(integer));
 
