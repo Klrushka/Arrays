@@ -181,10 +181,14 @@ public class Main {
         class that produces new values by incrementing according to a constructor argument. Modify
         TestArrayGeneration.java to show that your new class works correctly.
          */
+        System.out.println("-----------------------------------------------------");
 
         TestArrayGeneration.start();
 
+        System.out.println("-----------------------------------------------------");
+
         System.out.println();
+
 
 
         /*
