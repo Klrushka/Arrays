@@ -3,20 +3,21 @@ package task16;
 
 import generators.CountingGenerator;
 import generators.Generator;
-import generators.SGenerator;
+
+import java.math.BigDecimal;
 
 
 public class SkipGenerator {
-        public static class Boolean {
+    public static class Boolean {
         private boolean value;
         private int hm;
         private int i = 0;
 
-        public Boolean(int n){
+        public Boolean(int n) {
             hm = n;
         }
 
-        private CountingGenerator.Boolean generator = new CountingGenerator.Boolean(){
+        private CountingGenerator.Boolean generator = new CountingGenerator.Boolean() {
             @Override
             public java.lang.Boolean next() {
                 value = i % 2 != 0;
@@ -25,10 +26,10 @@ public class SkipGenerator {
             }
         };
 
-            public CountingGenerator.Boolean getGenerator() {
-                return generator;
-            }
+        public CountingGenerator.Boolean getGenerator() {
+            return generator;
         }
+    }
 
     public static class Byte {
         private byte value = 0;
@@ -38,7 +39,7 @@ public class SkipGenerator {
             hm = (byte) n;
         }
 
-        private CountingGenerator.Byte generator = new CountingGenerator.Byte(){
+        private CountingGenerator.Byte generator = new CountingGenerator.Byte() {
             @Override
             public java.lang.Byte next() {
                 return value += hm;
@@ -197,4 +198,26 @@ public class SkipGenerator {
             return generator;
         }
     }
+
+    public static class BigDecimal1 {
+        private BigDecimal value = BigDecimal.ZERO;
+        private BigDecimal hm;
+
+        public BigDecimal1(BigDecimal i) {
+            hm = i;
+        }
+
+        private CountingGenerator.BigDecimal1 generator = new CountingGenerator.BigDecimal1() {
+            @Override
+            public BigDecimal next() {
+                value = value.add(hm);
+                return value;
+            }
+        };
+
+        public CountingGenerator.BigDecimal1 getGenerator() {
+            return generator;
+        }
+    }
+
 }

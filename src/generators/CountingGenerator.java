@@ -1,5 +1,7 @@
 package generators;
 
+import java.math.BigDecimal;
+
 public class CountingGenerator {
     public static class
     Boolean implements Generator<java.lang.Boolean> {
@@ -99,6 +101,15 @@ public class CountingGenerator {
             double result = value;
             value += 1.0;
             return result;
+        }
+    }
+
+    public static class BigDecimal1 implements Generator<java.math.BigDecimal>{
+        private BigDecimal value = BigDecimal.ZERO;
+        @Override
+        public BigDecimal next() {
+            value = value.add(BigDecimal.ONE);
+            return value;
         }
     }
 

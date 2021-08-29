@@ -1,6 +1,7 @@
 /*
 TODO 17 21
  */
+
 import task1.BerylliumSphere;
 import task1.Methods;
 import task12.Ex12;
@@ -196,7 +197,11 @@ public class Main {
         with the Generated methods.
          */
 
+        System.out.println("-----------------------------------------------------");
+
         Test.test();
+
+        System.out.println("-----------------------------------------------------");
 
         System.out.println();
 
@@ -224,7 +229,7 @@ public class Main {
         EqualsArrays[] equalsArrays1 = new EqualsArrays[size];
         EqualsArrays[] equalsArrays2 = new EqualsArrays[size];
 
-        for (int i = 0; i < size; i++){
+        for (int i = 0; i < size; i++) {
             equalsArrays1[i] = new EqualsArrays(1);
             equalsArrays2[i] = new EqualsArrays(1);
         }
@@ -307,9 +312,7 @@ public class Main {
         Arrays.sort(equalsArrays);
 
         System.out.println(Arrays.toString(equalsArrays));
-        System.out.println(Arrays.binarySearch(equalsArrays,equalsArrays[1]));
-
-
+        System.out.println(Arrays.binarySearch(equalsArrays, equalsArrays[1]));
 
 
     }
