@@ -20,7 +20,7 @@ public class CountingGenerator {
         }
     }
 
-    static char[] chars = ("abcdefghijklmnopqrstuvwxyz" +
+    public static char[] chars = ("abcdefghijklmnopqrstuvwxyz" +
             "ABCDEFGHIJKLMNOPQRSTUVWXYZ").toCharArray();
 
     public static class
@@ -101,4 +101,5 @@ public class CountingGenerator {
             return result;
         }
     }
+
 }

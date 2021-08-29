@@ -2,163 +2,181 @@ package task16;
 
 
 import generators.CountingGenerator;
+import generators.Generator;
 import generators.SGenerator;
 
 
 public class SkipGenerator {
-//    public static class
-//    Boolean implements SGenerator<java.lang.Boolean> {
-//        private boolean value = false;
-//
-//        public java.lang.Boolean next(int n) {
-//            value = !value;
-//            return value;
-//        }
-//
-//        public java.lang.Boolean next() {
-//            value = !value; // Just flips back and forth
-//            return value;
-//        }
-//    }
-//
-//    public static class
-//    Byte implements SGenerator<java.lang.Byte> {
-//        private byte value = 0;
-//
-//        public Byte(int n) {
-//            value = (byte) n;
-//        }
-//
-//        public java.lang.Byte next(int n) {
-//            return value += n;
-//        }
-//
-//        public java.lang.Byte next() {
-//            return value++;
-//        }
-//    }
-//
-//    static char[] chars = ("abcdefghijklmnopqrstuvwxyz" +
-//            "ABCDEFGHIJKLMNOPQRSTUVWXYZ").toCharArray();
-//
-//    public static class
-//    Character implements SGenerator<java.lang.Character> {
-//        int index = -1;
-//
-//        public Character(int n) {
-//            index = n;
-//        }
-//
-//        public java.lang.Character next() {
-//            index = (index + 1) % chars.length;
-//            return chars[index];
-//        }
-//
-//        public java.lang.Character next(int n) {
-//            index = (index + n) % chars.length;
-//            return chars[index];
-//        }
-//    }
-//
-//    public static class
-//    String implements SGenerator<java.lang.String> {
-//        private int length = 7;
-//        SGenerator<java.lang.Character> cg = new Character(7);
-//
-//        public String() {
-//        }
-//
-//
-//        public String(int length) {
-//            this.length = length;
-//        }
-//
-//        public java.lang.String next(int n) {
-//            char[] buf = new char[length];
-//            for (int i = 0; i < length; i++)
-//                buf[i] = cg.next(n);
-//            return new java.lang.String(buf);
-//        }
-//
-//        public java.lang.String next() {
-//            char[] buf = new char[length];
-//            for (int i = 0; i < length; i++)
-//                buf[i] = cg.next();
-//            return new java.lang.String(buf);
-//        }
-//    }
-//
-//    public static class
-//    Short implements SGenerator<java.lang.Short> {
-//        private short value = 0;
-//
-//        public Short(int n) {
-//            value = (short) n;
-//        }
-//
-//        public java.lang.Short next() {
-//            return value++;
-//        }
-//
-//        public java.lang.Short next(int n) {
-//            return value = (short) +n;
-//        }
-//    }
-//
-//    public static class
-//    Integer implements SGenerator<java.lang.Integer> {
-//        private int value = 0;
-//
-//        public Integer(int n) {
-//            value = n;
-//        }
-//
-//        public java.lang.Integer next() {
-//            return value++;
-//        }
-//
-//        public java.lang.Integer next(int n) {
-//            return value += n;
-//        }
-//    }
-//
-//    public static class
-//    Long implements SGenerator<java.lang.Long> {
-//        private long value = 0;
-//
-//        public Long(int n) {
-//            value = n;
-//        }
-//
-//        public java.lang.Long next() {
-//            return value++;
-//        }
-//
-//        public java.lang.Long next(int n) {
-//            return value += n;
-//        }
-//    }
-//
-//    public static class
-//    Float implements SGenerator<java.lang.Float> {
-//        private float value = 0;
-//
-//        public Float(int n) {
-//            value = (float) n;
-//        }
-//
-//        public java.lang.Float next(int n) {
-//            float result = value;
-//            value += (float) n;
-//            return result;
-//        }
-//
-//        public java.lang.Float next() {
-//            float result = value;
-//            value += 1.0;
-//            return result;
-//        }
-//    }
+        public static class Boolean {
+        private boolean value;
+        private int hm;
+        private int i = 0;
+
+        public Boolean(int n){
+            hm = n;
+        }
+
+        private CountingGenerator.Boolean generator = new CountingGenerator.Boolean(){
+            @Override
+            public java.lang.Boolean next() {
+                value = i % 2 != 0;
+                i += hm;
+                return value;
+            }
+        };
+
+            public CountingGenerator.Boolean getGenerator() {
+                return generator;
+            }
+        }
+
+    public static class Byte {
+        private byte value = 0;
+        private byte hm;
+
+        public Byte(int n) {
+            hm = (byte) n;
+        }
+
+        private CountingGenerator.Byte generator = new CountingGenerator.Byte(){
+            @Override
+            public java.lang.Byte next() {
+                return value += hm;
+            }
+        };
+
+        public CountingGenerator.Byte getGenerator() {
+            return generator;
+        }
+    }
+
+    static char[] chars = ("abcdefghijklmnopqrstuvwxyz" +
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ").toCharArray();
+
+    public static class Character {
+        private int index = -1;
+
+        public Character(int n) {
+            index = n;
+        }
+
+        private CountingGenerator.Character generator = new CountingGenerator.Character() {
+            @Override
+            public java.lang.Character next() {
+                index = (index * 2) % chars.length;
+                return chars[index];
+            }
+        };
+
+        public CountingGenerator.Character getGenerator() {
+            return generator;
+        }
+    }
+
+    public static class String {
+        private int length;
+        private int skip;
+        private Generator<java.lang.String> cg = new CountingGenerator.String() {
+            @Override
+            public java.lang.String next() {
+                CountingGenerator.Character charGen = new SkipGenerator.Character(skip).getGenerator();
+                char[] buf = new char[length];
+                for (int i = 0; i < length; i++)
+                    buf[i] = charGen.next();
+                return new java.lang.String(buf);
+            }
+        };
+
+        public String(int length, int skip) {
+            this.length = length;
+            this.skip = skip;
+        }
+
+        public Generator<java.lang.String> getGenerator() {
+            return cg;
+        }
+    }
+
+    public static class Short {
+        private short value = 0;
+        private short hm;
+
+        public Short(int n) {
+            hm = (short) n;
+        }
+
+        private CountingGenerator.Short generator = new CountingGenerator.Short() {
+            @Override
+            public java.lang.Short next() {
+                return (short) (value += hm);
+            }
+        };
+
+        public CountingGenerator.Short getGenerator() {
+            return generator;
+        }
+    }
+
+    public static class Integer {
+        private int value = 0;
+        private int hm;
+
+        public Integer(int n) {
+            hm = n;
+        }
+
+        private CountingGenerator.Integer generator = new CountingGenerator.Integer() {
+            @Override
+            public java.lang.Integer next() {
+                return value += hm;
+            }
+        };
+
+        public CountingGenerator.Integer getGenerator() {
+            return generator;
+        }
+    }
+
+    //
+    public static class Long {
+        private long value = 0;
+        private long hm;
+
+        public Long(int n) {
+            hm = n;
+        }
+
+
+        private CountingGenerator.Long generator = new CountingGenerator.Long() {
+            @Override
+            public java.lang.Long next() {
+                return value += hm;
+            }
+        };
+
+        public CountingGenerator.Long getGenerator() {
+            return generator;
+        }
+    }
+
+    public static class Float {
+        private float value = 0f;
+        private float hm;
+        private CountingGenerator.Float generator = new CountingGenerator.Float() {
+            @Override
+            public java.lang.Float next() {
+                return value += hm;
+            }
+        };
+
+        public Float(float n) {
+            hm = n;
+        }
+
+        public CountingGenerator.Float getGenerator() {
+            return generator;
+        }
+    }
 
     public static class Double {
         private double value = 0.0;
