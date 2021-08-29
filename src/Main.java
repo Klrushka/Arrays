@@ -1,5 +1,5 @@
 /*
-TODO 17 21
+TODO 21
  */
 
 import task1.BerylliumSphere;
@@ -15,7 +15,7 @@ import task19.EqualsArrays;
 import task2.ReturnArrayOfBS;
 import task20.DeepEquals;
 import task21.CBerylliumSphere;
-import task21.CBerylliumSphereComparator;
+
 import task22.BSearchArray;
 import task23.ReversedIntegers;
 import task3.TwoDimensionalArray;
@@ -26,7 +26,6 @@ import task7.ThreeDimensionalArrayBS;
 import task8.Assertions;
 import task9.PeelBanana;
 
-import java.awt.image.AreaAveragingScaleFilter;
 import java.util.Arrays;
 
 public class Main {
@@ -273,7 +272,7 @@ public class Main {
         System.out.println("Sorted: ");
         System.out.println(Arrays.toString(cBerylliumSpheres));
 
-        Arrays.sort(cBerylliumSpheres, new CBerylliumSphereComparator());
+        Arrays.sort(cBerylliumSpheres,new CBerylliumSphere.CBerylliumSphereComparator());
         System.out.println("Reverse: ");
 
         System.out.println(Arrays.toString(cBerylliumSpheres));

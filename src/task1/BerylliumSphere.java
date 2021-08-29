@@ -7,4 +7,8 @@ public class BerylliumSphere {
     public String toString() {
         return "Sphere " + id;
     }
+
+    public long getId() {
+        return id;
+    }
 }
